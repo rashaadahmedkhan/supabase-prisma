@@ -6,6 +6,15 @@
     "ts-node": "^10.9.1"
   },
   "dependencies": {
-    "@prisma/client": "^5.2.0"
+    "@prisma/client": "^5.2.0",
+    "@supabase/supabase-js": "^2.33.2"
+  },
+  "scripts": {
+    "db-start": "npx supabase start",
+    "db-stop": "npx supabase stop --backup",
+    "update-types": "npx supabase gen types typescript --local --schema public > src/types/supabaseTypes.ts"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   }
 }
